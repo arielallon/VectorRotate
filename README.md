@@ -19,4 +19,7 @@ Recursively swaps equally sized left and right chunks of the vector, starting wi
 
 Reverser
 --------
-to be done
+Split the vector into two parts (left the size of the shift amount, right the rest). Reverse each one, then reverse the entire vector.
+Why this works isn't entirely obvious until you think about it for a bit or look at the explination.
+
+(@todo, add big-O analysis of time and space of each to this readme)
