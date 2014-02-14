@@ -2,6 +2,7 @@
 
 require_once('Juggler.php');
 require_once('Swapper.php');
+require_once('Reverser.php');
 
 // doesn't print keys
 function print_r_compact($array) {
@@ -11,14 +12,13 @@ function print_r_compact($array) {
 	echo "\n";
 }
 
-$juggler = new Juggler();
-$swapper = new Swapper();
 
 $a = array('a', 'b', 'c', 'd');
 $b = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm');
 $arrays = array($a, $b);
 
 echo "=== Juggler ===\n";
+$juggler = new Juggler();
 foreach ($arrays as $array) {
 	for ($i = 0; $i < 17; $i++) {
 		echo "rotate $i: ";
@@ -29,11 +29,23 @@ foreach ($arrays as $array) {
 }
 
 echo "=== Swapper ===\n";
+$swapper = new Swapper();
 foreach ($arrays as $array) {
 	for ($i = 0; $i < 17; $i++) {
 		echo "rotate $i: ";
 		$temp = $array;
 		$swapper->rotate($temp, $i);
+		print_r_compact($temp);
+	}
+}
+
+echo "=== Reverser ===\n";
+$reverser = new Reverser();
+foreach ($arrays as $array) {
+	for ($i = 0; $i < 17; $i++) {
+		echo "rotate $i: ";
+		$temp = $array;
+		$reverser->rotate($temp, $i);
 		print_r_compact($temp);
 	}
 }
